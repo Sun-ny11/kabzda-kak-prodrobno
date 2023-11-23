@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import './../../App.css';
 
 type OnOfPropsType = {
-   status: boolean
+
 }
-export const OnOf: React.FC<OnOfPropsType> = ({ status }) => {
-   const stuleOn = {
-      backgroundColor: "green"
+export const OnOf: React.FC<OnOfPropsType> = () => {
+
+   const [change, setChange] = useState(true)
+
+   let switcher = change
+
+   const On = {
+      backgroundColor: change?"green":"white"
    }
-   const stuleOff = {
-      backgroundColor: "red"
+   const Off = {
+      backgroundColor: change?"white":"red"
    }
-   
+   const lamp = {
+      backgroundColor: change?"green":"red"
+   }
+
    return (
       <div>
-         {status ?<span style={stuleOn} className="on">On</span>:<span  className="off">On</span>}
-         {status ?<span className="off">Off</span>:<span style={stuleOff} className="on">Off</span>}
-         {status ? <span style={stuleOn} className="lamp"></span>: <span style={stuleOff} className="lamp"></span>}
+         <button onClick={()=>setChange(!change)} style={On} className="on">On</button>
+         <button onClick={()=>setChange(!change)} style={Off} className="off">Off</button>
+         <span style={lamp} className="lamp"></span>
       </div>
    );
 };
