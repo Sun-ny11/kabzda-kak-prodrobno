@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Accordion } from './components/Accordion';
-import { Rating } from './components/Rating';
-import { OnOf } from './components/onOf/OnOf';
+import { Rating, ValueType } from './components/Rating';
+import { OnOff } from './components/onOf/OnOff';
 import { UnControlledAccordion } from './components/UnControlledAccordion';
 import { UnControlledRating } from './components/UnControlledRating';
+import { UnControlledOnOff } from './components/onOf/UnControlledOnOff';
+
+
+
+
 
 function App() {
   console.log("App render");
+
+  const [ratingValue, setRatingValue] = useState<ValueType>(0)
+  const [collapsed, setCollapsed] = useState<boolean>(true)
+  const [switchOnOff, setSwitchOnOff] = useState<boolean>(true)
+
   return (
     <div>
-      <AppTitle title = {"This is react app"}/>
-      <Rating value = {2} />
-      <UnControlledRating/>
-      <Accordion titleValue = {"Menu"} collapsed = {true}/>
-      <UnControlledAccordion titleValue = {"Control"} />
-      <OnOf />
+      <AppTitle title={"This is react app"} />
+      <Rating value={ratingValue} onClick={setRatingValue} />
+      <UnControlledRating />
+      <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={setCollapsed} />
+      <UnControlledAccordion titleValue={"Control"} />
+      <OnOff value={switchOnOff} setSwitchOnOff={setSwitchOnOff} />
+      <UnControlledOnOff setSwitchOnOff={setSwitchOnOff} />{switchOnOff.toString()}
     </div>
   );
 }
@@ -25,7 +36,7 @@ export default App;
 type AppTitlePropsType = {
   title: string
 }
-export const AppTitle = (props:AppTitlePropsType) => {
+export const AppTitle = (props: AppTitlePropsType) => {
   console.log("AppTitle rendering");
 
   return (
