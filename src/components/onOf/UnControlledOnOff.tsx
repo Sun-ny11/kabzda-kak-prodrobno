@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './../../App.css';
 
 type OnOfPropsType = {
-   setSwitchOnOff: (value: boolean) => void
+   // setSwitchOnOff: (value: boolean) => void
 }
 export const UnControlledOnOff: React.FC<OnOfPropsType> = (props) => {
 

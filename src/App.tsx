@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Accordion } from './components/Accordion';
-import { Rating, ValueType } from './components/Rating';
+import { Accordion } from './components/accordion/Accordion';
+import { Rating, ValueType } from './components/rating/Rating';
 import { OnOff } from './components/onOf/OnOff';
-import { UnControlledAccordion } from './components/UnControlledAccordion';
+import { UnControlledAccordion } from './components/accordion/UnControlledAccordion';
 import { UnControlledRating } from './components/UnControlledRating';
 import { UnControlledOnOff } from './components/onOf/UnControlledOnOff';
 
@@ -26,7 +26,7 @@ function App() {
       <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={setCollapsed} />
       <UnControlledAccordion titleValue={"Control"} />
       <OnOff value={switchOnOff} setSwitchOnOff={setSwitchOnOff} />
-      <UnControlledOnOff setSwitchOnOff={setSwitchOnOff} />{switchOnOff.toString()}
+      <UnControlledOnOff />{switchOnOff.toString()}
     </div>
   );
 }
