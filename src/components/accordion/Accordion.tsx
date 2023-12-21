@@ -1,7 +1,11 @@
+import { valueAccordionType } from "../../App"
+
 type AccordionPropsType = {
    titleValue: string
    collapsed: boolean
    setCollapsed: (value: boolean) => void
+   valueAccordion:valueAccordionType[]
+   onClick:(el:number)=>void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
@@ -10,7 +14,7 @@ export const Accordion = (props: AccordionPropsType) => {
    return (
       <div>
          <AccordionTitle title={props.titleValue} onClick={() => props.setCollapsed(!props.collapsed)} />
-         {!props.collapsed && <AccordionBody />}
+         {!props.collapsed && <AccordionBody valueAccordion={props.valueAccordion} onClick={props.onClick} />}
       </div>
    );
 };
@@ -28,15 +32,20 @@ export const AccordionTitle = (props: AccordionTitlePropsType) => {
    );
 };
 
+type AccordionBodyType ={
+   valueAccordion:valueAccordionType[]
+   onClick:(el:number)=>void
+}
 
-
-export const AccordionBody = () => {
+export const AccordionBody = (props:AccordionBodyType) => {
    console.log("AccordionBody rendering");
    return (
       <ul>
-         <li>1</li>
-         <li>2</li>
-         <li>3</li>
+         {props.valueAccordion.map(el=>{
+            return(
+               <li onClick={()=>{props.onClick(el.id)}} key={el.id}>{el.name}</li>
+            )
+         })}
       </ul>
    )
 };

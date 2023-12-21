@@ -9,18 +9,18 @@ export default {
 
 
 
-const onChangeHandler = action("true")
+const onChangeHandler = action(`eee `)
 
 export const OpenedAccordion = () => {
-   return <Accordion titleValue={"Open"} collapsed={false} setCollapsed={()=>{}} />
+   return <Accordion titleValue={"Open"} collapsed={false} setCollapsed={()=>{}} valueAccordion = {[{id:1, name:"1111"}]}  onClick={onChangeHandler}/>
 
 }
 export const ClosedAccordion = () => {
-   return <Accordion titleValue={"Close"} collapsed={true} setCollapsed={() => { }} />
+   return <Accordion titleValue={"Close"} collapsed={true} setCollapsed={() => { }} valueAccordion = {[{id:2, name:"22222"}]} onClick={onChangeHandler}/>
 
 }
 export const AccordionDemo = () => {
    const [collapsed, setCollapsed] = useState(true)
-   return <Accordion titleValue={"Accordion"} collapsed={collapsed} setCollapsed={() => { setCollapsed(!collapsed) }} />
+   return <Accordion titleValue={"Accordion"} collapsed={collapsed} setCollapsed={() => { setCollapsed(!collapsed) }} valueAccordion = {[{id:3, name:"33333"},{id:2, name:"22222"} ]} onClick={onChangeHandler}/>
 
 }
