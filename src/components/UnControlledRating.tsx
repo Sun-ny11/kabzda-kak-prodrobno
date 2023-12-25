@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
 
 type RatingPropsType = {
 
 }
 
-export const UnControlledRating = (props: RatingPropsType) => {
+export const UnControlledRating1 = (props: RatingPropsType) => {
    console.log("Rating rendering");
    const [change, setChange] = useState(0)
    let value = change
@@ -18,13 +19,16 @@ export const UnControlledRating = (props: RatingPropsType) => {
       </div>
    )
 }
+export const UnControlledRating = React.memo(UnControlledRating1)
+
 type StarPropsType = {
    selected: boolean
    setChange:()=>void
 }
 
-export const Star = (props: StarPropsType) => {
+export const Star1 = (props: StarPropsType) => {
    console.log("Star rendering");
    return <span onClick={props.setChange}>{props.selected ? <b>Star </b> : "Star"}</span>
 
 };
+export const Star = React.memo(Star1)

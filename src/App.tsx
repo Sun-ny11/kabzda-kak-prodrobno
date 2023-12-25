@@ -56,7 +56,7 @@ export default App;
 type AppTitlePropsType = {
   title: string
 }
-export const AppTitle = (props: AppTitlePropsType) => {
+export const AppTitle1 = (props: AppTitlePropsType) => {
   console.log("AppTitle rendering");
 
   return (
@@ -64,3 +64,4 @@ export const AppTitle = (props: AppTitlePropsType) => {
   );
 };
 
+export const AppTitle = React.memo(AppTitle1)

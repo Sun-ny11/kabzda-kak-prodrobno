@@ -1,14 +1,15 @@
+import React from "react"
 import { valueAccordionType } from "../../App"
 
 type AccordionPropsType = {
    titleValue: string
    collapsed: boolean
    setCollapsed: (value: boolean) => void
-   valueAccordion:valueAccordionType[]
-   onClick:(el:number)=>void
+   valueAccordion: valueAccordionType[]
+   onClick: (el: number) => void
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const Accordion1 = (props: AccordionPropsType) => {
    console.log("Accordion rendering");
    debugger
    return (
@@ -18,6 +19,7 @@ export const Accordion = (props: AccordionPropsType) => {
       </div>
    );
 };
+export const Accordion = React.memo(Accordion1)
 
 type AccordionTitlePropsType = {
    title: string
@@ -32,20 +34,21 @@ export const AccordionTitle = (props: AccordionTitlePropsType) => {
    );
 };
 
-type AccordionBodyType ={
-   valueAccordion:valueAccordionType[]
-   onClick:(el:number)=>void
+type AccordionBodyType = {
+   valueAccordion: valueAccordionType[]
+   onClick: (el: number) => void
 }
 
-export const AccordionBody = (props:AccordionBodyType) => {
+export const AccordionBody1 = (props: AccordionBodyType) => {
    console.log("AccordionBody rendering");
    return (
       <ul>
-         {props.valueAccordion.map(el=>{
-            return(
-               <li onClick={()=>{props.onClick(el.id)}} key={el.id}>{el.name}</li>
+         {props.valueAccordion.map(el => {
+            return (
+               <li onClick={() => { props.onClick(el.id) }} key={el.id}>{el.name}</li>
             )
          })}
       </ul>
    )
 };
+export const AccordionBody = React.memo(AccordionBody1)

@@ -1,3 +1,4 @@
+import React from "react"
 
 
 export type ValueType = 0 | 1 | 2 | 3 | 4 | 5
@@ -7,7 +8,7 @@ type RatingPropsType = {
    onClick: (value: ValueType) => void
 }
 
-export const Rating = (props: RatingPropsType) => {
+export const Rating1 = (props: RatingPropsType) => {
    console.log("Rating rendering");
    return (
       <div>
@@ -19,14 +20,16 @@ export const Rating = (props: RatingPropsType) => {
       </div>
    )
 }
+export const Rating = React.memo(Rating1)
 type StarPropsType = {
    selected: boolean
    onClick: (value: ValueType) => void
    value: ValueType
 }
 
-export const Star = (props: StarPropsType) => {
+export const Star1 = (props: StarPropsType) => {
    console.log("Star rendering");
    return <span onClick={() => { props.onClick(props.value) }}>{props.selected ? <b>Star </b> : "Star "}</span>
 
 };
+export const Star = React.memo(Star1)

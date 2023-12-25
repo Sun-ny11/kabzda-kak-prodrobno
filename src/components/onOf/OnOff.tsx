@@ -5,7 +5,7 @@ type OnOfPropsType = {
    setSwitchOnOff: (value: boolean) => void
    value: boolean
 }
-export const OnOff: React.FC<OnOfPropsType> = (props) => {
+export const OnOff1: React.FC<OnOfPropsType> = (props) => {
 
    // const [change, setChange] = useState(true)
 
@@ -29,3 +29,4 @@ export const OnOff: React.FC<OnOfPropsType> = (props) => {
       </div>
    );
 };
+export const OnOff = React.memo(OnOff1)
